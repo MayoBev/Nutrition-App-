@@ -1,0 +1,54 @@
+body {
+    background-color: #F6F7C1;
+}
+
+
+header {
+    width: 80%; 
+    background-color: blue;
+    margin: 0 auto; 
+
+}
+
+.background-image {
+    height: 25vh;
+    background-image: /*linear-gradient(
+    to bottom,
+        rgba(74, 226, 84, 0.622),
+        rgba(0, 0, 0, 0.15)
+    ),*/
+    url(/Assets/Images/MicrosoftTeams-image.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+#search-container { 
+    display: flex; 
+    justify-content: center; 
+    gap: 2rem; 
+    text-align: center;
+
+}
+.search-form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.nutritional-info {
+    display: flex;
+    flex-direction: column;
+}
+
+#macroInfo {
+    display: flex; 
+    gap: 2rem; 
+    list-style-type: none;
+}

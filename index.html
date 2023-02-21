@@ -9,7 +9,43 @@
     <link rel="stylesheet" href="Assets/CSS/style.css">
 </head>
 <body>
-    <h1>Hello Nutrition</h1>
+    <header>
+        <section>          
+            <div class="jumbotron mt-4 p-5 text-white rounded background-image">            
+                <h1 class="fs-1">Nutrition App</h1>            
+            </div>
+        </section>
+    </header>
+    <main>
+        <section id="search-container" class="mt-3">
+            <div id="search-input">
+                <form action="search" class="search-form">
+                    <label for="searchBox">Enter Food Name</label>
+                    <input type="text" id="searchBox">
+                    <button type="button" class="btn btn-success mt-3">Search</button>
+                </form>
+            </div>
+            <div class="nutritional-info">
+                <h3>Nutritional Information</h3>
+                <img src="Assets/Images/avocado-dark-wood-background.jpeg" alt="Avocado" style="height:120px; width: 180px">
+                <ul id="macroInfo">
+                    <li>Carbs</li>
+                    <li>Protein</li>
+                    <li>Fat</li>
+                </ul>
+                <button type="button" class="btn btn-success mt-3">Add To My List</button>
+            </div>
+        </section>
+        <section>
+            <div class="list-container">
+                Food List
+                <div>Food card</div>
+            </div>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script type="text/javascript" src="Assets/JavaScript/app.js"></script>
 </body>
