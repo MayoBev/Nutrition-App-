@@ -1,11 +1,12 @@
 body {
   /* background-color: #f6f7c1; */
-  background-color: #a1c688;
+  /* background-color: #a1c688; */
   font-family: "Poppins", sans-serif;
   box-sizing: border-box;
   margin: 0%;
   padding: 0%;
 }
+
 
 /* ////////////////////////////////////////// */
 /* HEADER */
@@ -50,7 +51,7 @@ header {
 
 .background-image {
   height: 25vh;
-  background-image: url(/Assets/Images/MicrosoftTeams-image-low-rez.jpg);
+  background-image: url(/Nutrition-App-/Assets/Images/MicrosoftTeams-image-low-rez.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -70,16 +71,12 @@ header {
 /* MAIN */
 #nutrition-container {
   display: flex;
-  justify-content: center;
-  gap: 3rem;
+  justify-content: space-evenly;
   text-align: center;
   align-items: center;
   padding: 30px 5px;
 }
 
-.food-container {
-  /* border: 1px solid; */
-}
 .food-title {
   background-color: #198754;
   color: #fff;
@@ -87,27 +84,38 @@ header {
   margin: 0;
 }
 
-.food-image {
-  margin: 0;
+.food-container {
+  box-shadow: 1px 1px 2px;
 }
 
 .food-info {
+  box-shadow: 1px 1px 2px;
+  height: 298px;
   text-align: center;
-  padding: 10px 100px;
   background-color: #fff;
+}
+
+.food-image {
+  margin: 0;
+  height: 255px;
 }
 
 .food-info-title {
   background-color: #198754;
   color: #fff;
-  width: 400px;
   margin: 0;
+  padding: 5px;
+  width: 100%;
 }
 
 .informations {
   text-align: center;
   align-items: center;
   justify-content: center;
+}
+
+.informations li {
+  width: 100px;
 }
 
 .nutritional-info {
@@ -124,6 +132,29 @@ header {
   padding-left: 0;
 }
 
+.macro {
+  font-weight: 600;
+  color: #fff;
+}
+
+.carbs {
+  background-color: #135d3a;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.fat {
+  background-color: rgb(218, 167, 36);
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.protein {
+  background-color: #a9301b;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
 /* FOOD LIST */
 #food-list {
   display: flex;
@@ -132,13 +163,12 @@ header {
   justify-content: center;
   flex-wrap: wrap;
   padding: 5rem 5rem;
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
       to bottom,
       rgba(30, 30, 30, 0.192),
       rgba(0, 0, 0, 0.45)
-    ),
-    url(/Assets/Images/MicrosoftTeams-image-low-rez.jpg);
-
+    ); */
+  background-image: url(/Nutrition-App-/Assets/Images/MicrosoftTeams-image-low-rez.jpg);  
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
