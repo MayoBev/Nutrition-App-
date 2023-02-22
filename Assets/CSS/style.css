@@ -1,8 +1,14 @@
 body {
-  background-color: #f6f7c1;
+  /* background-color: #f6f7c1; */
+  background-color: #a1c688;
   font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  margin: 0%;
+  padding: 0%;
 }
 
+/* ////////////////////////////////////////// */
+/* HEADER */
 .hero {
   display: flex;
   align-items: center;
@@ -17,20 +23,22 @@ header {
 }
 
 .nav-title {
-  /* background-color: #198754;
-  padding: 4px 8px;
-  border-radius: 10px;
-  opacity: 0.8; */
   font-weight: 800;
-  /* font-style: italic; */
+  border: #fff 3px solid;
+  border-right: none;
+  border-radius: 10px;
+  padding-left: 8px;
 }
 
 .title-span {
   background-color: #198754;
-  padding: 0px 10px 0px 3px;
-  border-radius: 10px;
-  opacity: 0.8;
+  padding: 0px 7px 0px 8px;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  opacity: 1;
   font-weight: 800;
+  transform: skew(10deg);
+  margin-left: 3px;
 }
 
 .input-field {
@@ -42,11 +50,7 @@ header {
 
 .background-image {
   height: 25vh;
-  background-image: /*linear-gradient(
-    to bottom,
-        rgba(74, 226, 84, 0.622),
-        rgba(0, 0, 0, 0.15)
-    ),*/ url(/Assets/Images/MicrosoftTeams-image.png);
+  background-image: url(/Assets/Images/MicrosoftTeams-image-low-rez.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -58,14 +62,52 @@ header {
   font-size: 0.9rem;
 }
 
+.search-form {
+  display: flex;
+}
+
+/* ////////////////////////////////////////// */
+/* MAIN */
 #nutrition-container {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 3rem;
   text-align: center;
+  align-items: center;
+  padding: 30px 5px;
 }
-.search-form {
-  display: flex;
+
+.food-container {
+  /* border: 1px solid; */
+}
+.food-title {
+  background-color: #198754;
+  color: #fff;
+  padding: 5px;
+  margin: 0;
+}
+
+.food-image {
+  margin: 0;
+}
+
+.food-info {
+  text-align: center;
+  padding: 10px 100px;
+  background-color: #fff;
+}
+
+.food-info-title {
+  background-color: #198754;
+  color: #fff;
+  width: 400px;
+  margin: 0;
+}
+
+.informations {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .nutritional-info {
@@ -77,4 +119,33 @@ header {
   display: flex;
   gap: 2rem;
   list-style-type: none;
+  justify-content: center;
+  list-style: none;
+  padding-left: 0;
+}
+
+/* FOOD LIST */
+#food-list {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 5rem 5rem;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(30, 30, 30, 0.192),
+      rgba(0, 0, 0, 0.45)
+    ),
+    url(/Assets/Images/MicrosoftTeams-image-low-rez.jpg);
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.card-title {
+  text-align: center;
+  background-color: #198754;
+  color: #fff;
 }
