@@ -51,7 +51,7 @@ header {
 
 .background-image {
   height: 25vh;
-  background-image: url(/Nutrition-App-/Assets/Images/MicrosoftTeams-image-low-rez.jpg);
+  background-image: url(../Images/MicrosoftTeams-image-low-rez.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -168,7 +168,7 @@ header {
       rgba(30, 30, 30, 0.192),
       rgba(0, 0, 0, 0.45)
     ); */
-  background-image: url(/Nutrition-App-/Assets/Images/MicrosoftTeams-image-low-rez.jpg);  
+  background-image: url(../Images/MicrosoftTeams-image-low-rez.jpg);  
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
