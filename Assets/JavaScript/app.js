@@ -23,8 +23,7 @@ const searchResult = async (event) => {
     } else {
       // get the data object
       const data = await apiResponse.json()
-    console.log(data)
-    // ?.parsed?.[0]?.food
+    console.log(data?.parsed?.[0]?.food)
     }
 
     } catch (error) {
