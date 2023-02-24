@@ -7,7 +7,6 @@ body {
   padding: 0%;
 }
 
-
 /* ////////////////////////////////////////// */
 /* HEADER */
 .hero {
@@ -67,6 +66,11 @@ header {
   display: flex;
 }
 
+/* Wrong input */
+.wrong-input {
+  color: #a9301b;
+}
+
 /* ////////////////////////////////////////// */
 /* MAIN */
 #nutrition-container {
@@ -86,11 +90,10 @@ header {
 
 .food-container {
   box-shadow: 1px 1px 2px;
-  
 }
 
 .food-container .food-image {
-  object-fit:fill;
+  object-fit: fill;
 }
 
 .food-info {
@@ -173,7 +176,7 @@ header {
       rgba(30, 30, 30, 0.192),
       rgba(0, 0, 0, 0.45)
     ); */
-  background-image: url(../Images/MicrosoftTeams-image-low-rez.jpg);  
+  background-image: url(../Images/MicrosoftTeams-image-low-rez.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

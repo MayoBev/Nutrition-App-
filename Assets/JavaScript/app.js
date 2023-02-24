@@ -7,25 +7,34 @@ const apiKey = "9affe95a2361b265fa643729a13a2e14"
 
 
 const searchResult = async (event) => {
-    // prevents form reload
-    event.preventDefault()
-    // take value from search input
-    const searchValue = searchInput.value
-    // console.log(searchValue)
-    try {
-      // get API url
-      const apiUrl = `https://api.edamam.com/api/food-database/v2/parser?app_id=${apiId}&app_key=${apiKey}&ingr=${searchValue}&category=generic-foods`
-      // get API's response
-      const apiResponse = await fetch(apiUrl)
-      // check if status code is not 200
-      if (apiResponse.status !== 200) {
-        throw new Error ("Something went wrong, try again later!")
+  // prevents form reload
+  event.preventDefault()
+  // take value from search input
+  const searchValue = searchInput.value
+  // console.log(searchValue)
+  try {
+    // get API url
+    const apiUrl = `https://api.edamam.com/api/food-database/v2/parser?app_id=${apiId}&app_key=${apiKey}&ingr=${searchValue}&category=generic-foods`
+    // get API's response
+    const apiResponse = await fetch(apiUrl)
+    // check if status code is not 200
+    if (apiResponse.status !== 200) {
+      throw new Error("Something went wrong, try again later!")
     } else {
       // get the data object
       const data = await apiResponse.json()
       //console.log(data?.parsed?.[0]?.food)
       const foodLabel = document.querySelector('.food-title')
-      foodLabel.textContent =`${data?.parsed?.[0]?.food.label}`
+      foodLabel.textContent = `${data?.parsed?.[0]?.food.label}`
+
+      // If you added an input that not avaiable on the api
+      if (data?.parsed?.[0]?.food.label === undefined) {
+        foodLabel.textContent = 'Food Name'
+        // const foodImage = document.querySelector('.food-image')
+        const wrongInput = document.querySelector('.wrong-input')
+        wrongInput.textContent = 'Unfound food, please try again'
+        console.log('wrong')
+      }
       // select the img element
       const foodImage = document.querySelector('.food-image')
       imageUrl = data?.parsed?.[0]?.food.image
@@ -36,13 +45,13 @@ const searchResult = async (event) => {
       macroValues.children[2].textContent = `${data?.parsed?.[0]?.food.nutrients.FAT} g`
     }
     // catch API error
-    } catch (error) {
+  } catch (error) {
     // create an H3 element
-      const errorEl = document.createElement("h3")
-        errorEl.textContent = "Service unavailable";
-        document.body.appendChild(errorEl).style.color = "red"
-    }
-  };
+    const errorEl = document.createElement("h3")
+    errorEl.textContent = "Service unavailable";
+    document.body.appendChild(errorEl).style.color = "red"
+  }
+};
 
-  searchForm.addEventListener('submit', searchResult)
+searchForm.addEventListener('submit', searchResult)
 
