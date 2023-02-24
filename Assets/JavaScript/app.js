@@ -55,3 +55,29 @@ const searchResult = async (event) => {
 
 searchForm.addEventListener('submit', searchResult)
 
+//select button 
+const addToList = document.getElementById("addToList")
+//Declare function that will populate using API data. 
+//
+const createList = () => { 
+  const foodList = document.getElementById("food-list")
+  foodList.innerHTML = `<div class="card" style="width: 18rem">
+  <img
+    src="Assets/Images/avocado-dark-wood-background.jpeg"
+    class="card-img-top"
+    alt="..."
+  />
+  <div class="card-body">
+    <h5 class="card-title">Avocado</h5>
+    <ul id="macroInfo">
+      <li>Carbs</li>
+      <li>Protein</li>
+      <li>Fat</li>
+    </ul>
+  </div>
+</div>`
+  
+  console.log("It works")
+}
+
+addToList.addEventListener("click", createList)
