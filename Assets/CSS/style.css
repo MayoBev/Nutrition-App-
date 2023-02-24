@@ -81,11 +81,16 @@ header {
   background-color: #198754;
   color: #fff;
   padding: 5px;
-  margin: 0;
+  margin-bottom: 0;
 }
 
 .food-container {
   box-shadow: 1px 1px 2px;
+  
+}
+
+.food-container .food-image {
+  object-fit:fill;
 }
 
 .food-info {

@@ -11,27 +11,37 @@ const searchResult = async (event) => {
     event.preventDefault()
     // take value from search input
     const searchValue = searchInput.value
-    console.log(searchValue)
-
+    // console.log(searchValue)
     try {
+      // get API url
       const apiUrl = `https://api.edamam.com/api/food-database/v2/parser?app_id=${apiId}&app_key=${apiKey}&ingr=${searchValue}&category=generic-foods`
- 
+      // get API's response
       const apiResponse = await fetch(apiUrl)
-      
+      // check if status code is not 200
       if (apiResponse.status !== 200) {
         throw new Error ("Something went wrong, try again later!")
     } else {
       // get the data object
       const data = await apiResponse.json()
-    console.log(data?.parsed?.[0]?.food)
+      //console.log(data?.parsed?.[0]?.food)
+      const foodLabel = document.querySelector('.food-title')
+      foodLabel.textContent =`${data?.parsed?.[0]?.food.label}`
+      // select the img element
+      const foodImage = document.querySelector('.food-image')
+      imageUrl = data?.parsed?.[0]?.food.image
+      foodImage.setAttribute("src", imageUrl)
+      const macroValues = document.querySelector('.macro-values')
+      macroValues.firstElementChild.textContent = `${data?.parsed?.[0]?.food.nutrients.CHOCDF} g`
+      macroValues.children[1].textContent = `${data?.parsed?.[0]?.food.nutrients.PROCNT} g`
+      macroValues.children[2].textContent = `${data?.parsed?.[0]?.food.nutrients.FAT} g`
     }
-
+    // catch API error
     } catch (error) {
+    // create an H3 element
       const errorEl = document.createElement("h3")
         errorEl.textContent = "Service unavailable";
         document.body.appendChild(errorEl).style.color = "red"
     }
-
   };
 
   searchForm.addEventListener('submit', searchResult)
