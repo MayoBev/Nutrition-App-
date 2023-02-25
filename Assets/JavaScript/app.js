@@ -43,8 +43,12 @@ const searchResult = async (event) => {
       macroValues.firstElementChild.textContent = `${data?.parsed?.[0]?.food.nutrients.CHOCDF} g`
       macroValues.children[1].textContent = `${data?.parsed?.[0]?.food.nutrients.PROCNT} g`
       macroValues.children[2].textContent = `${data?.parsed?.[0]?.food.nutrients.FAT} g`
+
+      // Sava to local storage
+      console.log(data?.parsed?.[0]?.food.label)
+      localStorage.setItem('food', JSON.stringify(foodLabel));
     }
-    // catch API error
+    // catch API error--
   } catch (error) {
     // create an H3 element
     const errorEl = document.createElement("h3")
@@ -59,7 +63,7 @@ searchForm.addEventListener('submit', searchResult)
 const addToList = document.getElementById("addToList")
 //Declare function that will populate using API data. 
 //
-const createList = () => { 
+const createList = () => {
   const foodList = document.getElementById("food-list")
   foodList.innerHTML = `<div class="card" style="width: 18rem">
   <img
@@ -76,7 +80,7 @@ const createList = () => {
     </ul>
   </div>
 </div>`
-  
+
   console.log("It works")
 }
 

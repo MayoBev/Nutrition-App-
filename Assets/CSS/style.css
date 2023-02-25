@@ -82,8 +82,8 @@ header {
   padding: 30px 5px;
 }
 
-.btn-add-list { 
-  margin-top: 3rem; 
+.btn-add-list {
+  margin-top: 3rem;
 }
 
 .food-title {
@@ -118,11 +118,11 @@ header {
   color: #fff;
   margin: 0;
   padding: 5px;
-  width: 100%; 
+  width: 100%;
 }
 
-.food-info-title span { 
-  font-size: 15px; 
+.food-info-title span {
+  font-size: 15px;
   font-weight: bold;
 }
 
@@ -198,42 +198,38 @@ header {
   color: #fff;
 }
 
-/*Smartphone screen*/ 
+/*Smartphone screen*/
 @media (max-width: 480px) {
-  .hero { 
+  .hero {
     flex-direction: column;
   }
 
   .food-info {
-    height: auto; 
-    width: 100%; 
+    height: auto;
+    width: 100%;
   }
-  #nutrition-container { 
+  #nutrition-container {
     padding-bottom: 0;
   }
-  .btn-add-list { 
-    margin-bottom: 12px; 
+  .btn-add-list {
+    margin-bottom: 12px;
   }
-
 }
 
-/*Tablet/Ipad*/ 
+/*Tablet/Ipad*/
 @media (max-width: 1024px) {
-  
-  .hero { 
-    gap: 4%; 
+  .hero {
+    gap: 4%;
   }
 
   .food-info {
-    margin-top: 2rem; 
+    margin-top: 2rem;
     box-shadow: none;
-
   }
 
-  #nutrition-container { 
-    display: flex; 
+  #nutrition-container {
+    display: flex;
     flex-direction: column;
     justify-content: center;
-    
-} 
+  }
 }
