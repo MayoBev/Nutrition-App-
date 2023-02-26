@@ -215,7 +215,7 @@ header {
 }
 
 /*Tablet/Ipad*/
-@media (max-width: 768px) {
+@media (max-width: 850px) {
   .hero {
     gap: 4%;
   }

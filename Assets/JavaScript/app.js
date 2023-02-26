@@ -6,7 +6,7 @@ const apiId = "dcb54f1d"
 const apiKey = "9affe95a2361b265fa643729a13a2e14"
 
 
-const searchResult = async (event) => {
+const searchFood = async (event) => {
   // prevents form reload
   event.preventDefault()
   // take value from search input
@@ -24,32 +24,39 @@ const searchResult = async (event) => {
       // get the data object
       const data = await apiResponse.json()
       
-      // get food information on to the page
-      
+      // get food name on to the page
       const foodLabel = document.querySelector('.food-title')
       foodLabel.textContent = `${data?.parsed?.[0]?.food.label}`  
       // select the img element
       const foodImage = document.querySelector('.food-image')
-      imageUrl = data?.parsed?.[0]?.food.image
+      const imageUrl = data?.parsed?.[0]?.food.image
       // set the image source from API data
       foodImage.setAttribute("src", imageUrl)
       // select the "ul"
       const macroValues = document.querySelector('.macro-values')
+
       // add macro info to the "li" elements
       macroValues.firstElementChild.textContent = `${data?.parsed?.[0]?.food.nutrients.CHOCDF} g`
       macroValues.children[1].textContent = `${data?.parsed?.[0]?.food.nutrients.PROCNT} g`
       macroValues.children[2].textContent = `${data?.parsed?.[0]?.food.nutrients.FAT} g`
       searchInput.value = ""
+           
       
-      // If you added an input that not avaiable on the api
-      if (data?.parsed?.[0]?.food.label === undefined) {
+      // If you added an input that is not avaiable on the api
+      if (data?.parsed?.[0]?.food.label === undefined || imageUrl === undefined) {
+        // reset to default food name
         foodLabel.textContent = 'Food Name'
-        // const foodImage = document.querySelector('.food-image')
+        
         const wrongInput = document.querySelector('.wrong-input')
-        wrongInput.textContent = 'Unfound food, please try again'
-        console.log('wrong')
+        wrongInput.textContent = 'Food not found'
+        // reset to default food image
+        const foodImage = document.querySelector('.food-image')
+        const imageSrc = "./Assets/Images/pexels-mateusz-feliksik-13428053.jpg"
+        foodImage.setAttribute("src", imageSrc)
+        const wrongMacro = document.querySelectorAll(".macro-result")
+        wrongInput.textContent = ""
       }
-
+      
       // Sava to local storage
       // console.log(data?.parsed?.[0]?.food.label)
       localStorage.setItem('food', JSON.stringify(foodLabel));
@@ -62,13 +69,14 @@ const searchResult = async (event) => {
     const banner = document.querySelector(".banner")
     banner.appendChild(errorMessage).style.color = "red"
   }
+  
 };
 
 const getFoodInfo = data => {
-  
+    
 }
 
-searchForm.addEventListener('submit', searchResult)
+searchForm.addEventListener('submit', searchFood)
 
 //select button 
 const addToList = document.getElementById("addToList")
