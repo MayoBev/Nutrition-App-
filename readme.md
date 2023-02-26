@@ -26,5 +26,5 @@ List the ready features here:
 
 
 ## Screenshots
-![Website View](./Images/Website%20View.png)
-![Mobile View](./Images/Mobile%20View%20.png)
+![Website View](./Assets/Images/Website%20View.png)
+![Mobile View](./Assets/Images/Mobile%20View%20.png)
