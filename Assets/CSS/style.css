@@ -3,8 +3,8 @@ body {
   /* background-color: #a1c688; */
   font-family: "Poppins", sans-serif;
   box-sizing: border-box;
-  margin: 0%;
-  padding: 0%;
+  margin: 0;
+  padding: 0;
 }
 
 /* ////////////////////////////////////////// */
@@ -99,6 +99,9 @@ header {
 
 .food-container .food-image {
   object-fit: fill;
+  margin: 0;
+  height: 255px;
+  width: min(400px);
 }
 
 .food-info {
@@ -106,11 +109,6 @@ header {
   height: 298px;
   text-align: center;
   background-color: #fff;
-}
-
-.food-image {
-  margin: 0;
-  height: 255px;
 }
 
 .food-info-title {
@@ -217,7 +215,7 @@ header {
 }
 
 /*Tablet/Ipad*/
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .hero {
     gap: 4%;
   }

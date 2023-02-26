@@ -23,10 +23,24 @@ const searchResult = async (event) => {
     } else {
       // get the data object
       const data = await apiResponse.json()
-      //console.log(data?.parsed?.[0]?.food)
+      
+      // get food information on to the page
+      
       const foodLabel = document.querySelector('.food-title')
-      foodLabel.textContent = `${data?.parsed?.[0]?.food.label}`
-
+      foodLabel.textContent = `${data?.parsed?.[0]?.food.label}`  
+      // select the img element
+      const foodImage = document.querySelector('.food-image')
+      imageUrl = data?.parsed?.[0]?.food.image
+      // set the image source from API data
+      foodImage.setAttribute("src", imageUrl)
+      // select the "ul"
+      const macroValues = document.querySelector('.macro-values')
+      // add macro info to the "li" elements
+      macroValues.firstElementChild.textContent = `${data?.parsed?.[0]?.food.nutrients.CHOCDF} g`
+      macroValues.children[1].textContent = `${data?.parsed?.[0]?.food.nutrients.PROCNT} g`
+      macroValues.children[2].textContent = `${data?.parsed?.[0]?.food.nutrients.FAT} g`
+      searchInput.value = ""
+      
       // If you added an input that not avaiable on the api
       if (data?.parsed?.[0]?.food.label === undefined) {
         foodLabel.textContent = 'Food Name'
@@ -35,27 +49,24 @@ const searchResult = async (event) => {
         wrongInput.textContent = 'Unfound food, please try again'
         console.log('wrong')
       }
-      // select the img element
-      const foodImage = document.querySelector('.food-image')
-      imageUrl = data?.parsed?.[0]?.food.image
-      foodImage.setAttribute("src", imageUrl)
-      const macroValues = document.querySelector('.macro-values')
-      macroValues.firstElementChild.textContent = `${data?.parsed?.[0]?.food.nutrients.CHOCDF} g`
-      macroValues.children[1].textContent = `${data?.parsed?.[0]?.food.nutrients.PROCNT} g`
-      macroValues.children[2].textContent = `${data?.parsed?.[0]?.food.nutrients.FAT} g`
 
       // Sava to local storage
-      console.log(data?.parsed?.[0]?.food.label)
+      // console.log(data?.parsed?.[0]?.food.label)
       localStorage.setItem('food', JSON.stringify(foodLabel));
     }
     // catch API error--
   } catch (error) {
     // create an H3 element
-    const errorEl = document.createElement("h3")
-    errorEl.textContent = "Service unavailable";
-    document.body.appendChild(errorEl).style.color = "red"
+    const errorMessage = document.createElement("h3")
+    errorMessage.textContent = "Service unavailable"
+    const banner = document.querySelector(".banner")
+    banner.appendChild(errorMessage).style.color = "red"
   }
 };
+
+const getFoodInfo = data => {
+  
+}
 
 searchForm.addEventListener('submit', searchResult)
 
